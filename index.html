@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Alessandro Moretti | Where Fire Meets Flavor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #e8e0d4;
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== SCROLL FADE-IN ANIMATION ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-section {
+            animation: fadeInUp 1s ease both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 30%;
+        }
+
+        .fade-section-left {
+            animation: slideInLeft 1s ease both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 30%;
+        }
+
+        .fade-section-right {
+            animation: slideInRight 1s ease both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 30%;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            color: #fff;
+            text-align: center;
+            margin-bottom: 0.6em;
+            font-weight: 400;
+        }
+
+        .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #c4a44a;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            margin-bottom: 1em;
+            font-weight: 400;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c4a44a, transparent);
+            margin: 0 auto 3.5rem;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+            transition: background 0.4s ease;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            color: #c4a44a;
+            letter-spacing: 0.08em;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #d4cdc0;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: #c4a44a;
+        }
+
+        .nav-reserve-btn {
+            font-size: 0.7rem !important;
+            letter-spacing: 0.2em !important;
+            text-transform: uppercase;
+            padding: 0.6rem 1.6rem;
+            border: 1px solid #c4a44a;
+            color: #c4a44a !important;
+            transition: all 0.4s ease !important;
+        }
+
+        .nav-reserve-btn:hover {
+            background: #c4a44a;
+            color: #0a0a0a !important;
+        }
+
+        /* ===== HERO SECTION ===== */
+        #hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.05);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.55) 0%,
+                rgba(0, 0, 0, 0.35) 40%,
+                rgba(0, 0, 0, 0.5) 70%,
+                rgba(10, 10, 10, 0.95) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 2rem;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero-pre-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+            text-transform: uppercase;
+            letter-spacing: 0.5em;
+            color: #c4a44a;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            color: #fff;
+            line-height: 1.05;
+            margin-bottom: 0.4em;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.85rem);
+            color: #d4cdc0;
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: #c4a44a;
+            color: #0a0a0a;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            border: 2px solid #c4a44a;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: #c4a44a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(196, 164, 74, 0.15);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: transparent;
+            color: #e8e0d4;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            border: 1px solid rgba(232, 224, 212, 0.3);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: #c4a44a;
+            color: #c4a44a;
+            transform: translateY(-2px);
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            animation: fadeIn 2.5s ease;
+        }
+
+        .hero-scroll-indicator span {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(196, 164, 74, 0.5);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(180deg, #c4a44a, transparent);
+            animation: scrollPulse 2s ease infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            padding: 8rem 4%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+        }
+
+        .about-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(196, 164, 74, 0.15);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .about-image-wrapper img {
+            transition: transform 8s ease;
+        }
+
+        .about-image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image-accent {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 100px;
+            height: 100px;
+            border-top: 1px solid #c4a44a;
+            border-left: 1px solid #c4a44a;
+            z-index: 2;
+        }
+
+        .about-image-accent-br {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            width: 100px;
+            height: 100px;
+            border-bottom: 1px solid #c4a44a;
+            border-right: 1px solid #c4a44a;
+            z-index: 2;
+        }
+
+        .about-text {
+            padding: 1rem 0;
+        }
+
+        .about-text .section-subtitle {
+            text-align: left;
+        }
+
+        .about-text .section-title {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text .gold-line {
+            margin: 0 0 2.5rem;
+        }
+
+        .about-description {
+            font-size: 0.95rem;
+            color: #b8b0a2;
+            margin-bottom: 2rem;
+            line-height: 1.9;
+        }
+
+        .about-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #c4a44a;
+            padding: 1.8rem 0;
+            border-top: 1px solid rgba(196, 164, 74, 0.15);
+            border-bottom: 1px solid rgba(196, 164, 74, 0.15);
+            margin-top: 2rem;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .about-quote::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: rgba(196, 164, 74, 0.2);
+            position: absolute;
+            top: 0.3rem;
+            left: 0;
+            line-height: 1;
+        }
+
+        .about-quote p {
+            padding-left: 2.5rem;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #c4a44a;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #8a8278;
+            margin-top: 0.3rem;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        #gallery {
+            padding: 8rem 4%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 10, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: background 0.5s ease;
+            z-index: 1;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            background: rgba(10, 10, 10, 0.65);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item-overlay .dish-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.5s ease 0.1s;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .gallery-item-overlay .dish-detail {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            color: #c4a44a;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.5s ease 0.2s;
+            margin-top: 0.4rem;
+            font-style: italic;
+        }
+
+        .gallery-item:hover .dish-name,
+        .gallery-item:hover .dish-detail {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== EXPERIENCE / SERVICES ===== */
+        #experience {
+            padding: 8rem 4%;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0f0e0b 50%, #0a0a0a 100%);
+        }
+
+        .experience-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .experience-card {
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(196, 164, 74, 0.08);
+            text-align: center;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c4a44a, transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .experience-card:hover::before {
+            opacity: 1;
+        }
+
+        .experience-card:hover {
+            background: rgba(196, 164, 74, 0.04);
+            border-color: rgba(196, 164, 74, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .experience-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: #c4a44a;
+            fill: none;
+            stroke-width: 1;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .experience-card h3 {
+            font-size: 1.15rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .experience-card p {
+            font-size: 0.85rem;
+            color: #8a8278;
+            line-height: 1.8;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        #testimonials {
+            padding: 8rem 4%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(196, 164, 74, 0.06);
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(196, 164, 74, 0.15);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-stars svg {
+            width: 14px;
+            height: 14px;
+            fill: #c4a44a;
+        }
+
+        .testimonial-card blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #d4cdc0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author-line {
+            width: 30px;
+            height: 1px;
+            background: #c4a44a;
+        }
+
+        .testimonial-author-name {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #c4a44a;
+            font-weight: 500;
+        }
+
+        .testimonial-author-title {
+            font-size: 0.72rem;
+            color: #6b6560;
+            margin-top: 0.2rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== RESERVATION SECTION ===== */
+        #reservation {
+            padding: 8rem 4%;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0d0c09 40%, #0d0c09 60%, #0a0a0a 100%);
+        }
+
+        .reservation-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .reservation-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #8a8278;
+            margin-bottom: 0.6rem;
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 1rem 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(196, 164, 74, 0.12);
+            color: #e8e0d4;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 300;
+            outline: none;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c4a44a' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            padding-right: 2.5rem;
+        }
+
+        .form-group select option {
+            background: #1a1a1a;
+            color: #e8e0d4;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #c4a44a;
+            box-shadow: 0 0 0 1px rgba(196, 164, 74, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #4a4540;
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form-submit-wrapper {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            padding: 1.1rem 3.5rem;
+            background: #c4a44a;
+            color: #0a0a0a;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            border: 2px solid #c4a44a;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-submit:hover {
+            background: transparent;
+            color: #c4a44a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(196, 164, 74, 0.15);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 5rem 4% 3rem;
+            border-top: 1px solid rgba(196, 164, 74, 0.08);
+        }
+
+        .footer-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #c4a44a;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-brand-sub {
+            font-size: 0.7rem;
+            color: #5a554e;
+            margin-top: 0.3rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(196, 164, 74, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .footer-social a:hover {
+            border-color: #c4a44a;
+            background: rgba(196, 164, 74, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .footer-social svg {
+            width: 16px;
+            height: 16px;
+            fill: #c4a44a;
+        }
+
+        .footer-info {
+            text-align: right;
+        }
+
+        .footer-location {
+            font-size: 0.78rem;
+            color: #6b6560;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.68rem;
+            color: #3d3a36;
+            letter-spacing: 0.1em;
+        }
+
+        /* ===== RESPONSIVE — PRESERVE LAYOUT ===== */
+        @media (max-width: 1024px) {
+            .experience-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.2rem;
+            }
+
+            .experience-card {
+                padding: 2rem 1.2rem;
+            }
+
+            .about-grid {
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.65rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 4px;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+            }
+
+            .experience-card {
+                padding: 1.8rem 1rem;
+            }
+
+            .experience-card h3 {
+                font-size: 0.95rem;
+            }
+
+            .experience-card p {
+                font-size: 0.78rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 4%;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.6rem;
+                letter-spacing: 0.12em;
+            }
+
+            .nav-reserve-btn {
+                padding: 0.5rem 1rem;
+            }
+
+            .hero-title {
+                font-size: clamp(2.4rem, 8vw, 3.5rem);
+            }
+
+            .hero-tagline {
+                font-size: clamp(1rem, 3vw, 1.3rem);
+            }
+
+            .hero-buttons {
+                gap: 1rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 0.85rem 2rem;
+                font-size: 0.65rem;
+            }
+
+            .about-grid {
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+            }
+
+            .about-image-wrapper {
+                width: 50%;
+            }
+
+            .about-text {
+                width: 50%;
+            }
+
+            .about-image-wrapper img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .about-description {
+                font-size: 0.85rem;
+            }
+
+            .about-quote {
+                font-size: 1.2rem;
+            }
+
+            .about-stats {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 3px;
+            }
+
+            .gallery-item-overlay .dish-name {
+                font-size: 0.85rem;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.8rem;
+            }
+
+            .experience-card {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .experience-icon {
+                margin-bottom: 1.2rem;
+            }
+
+            .experience-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .experience-card h3 {
+                font-size: 0.82rem;
+            }
+
+            .experience-card p {
+                font-size: 0.7rem;
+                line-height: 1.6;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .testimonial-card blockquote {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .reservation-form {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.2rem;
+            }
+
+            .footer-wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .footer-info {
+                text-align: right;
+            }
+        }
+
+        @media (max-width: 540px) {
+            nav {
+                padding: 0.8rem 3%;
+            }
+
+            .nav-logo {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 0.6rem;
+            }
+
+            .nav-links a {
+                font-size: 0.5rem;
+                letter-spacing: 0.08em;
+            }
+
+            .nav-reserve-btn {
+                padding: 0.4rem 0.7rem;
+                font-size: 0.5rem !important;
+            }
+
+            #hero {
+                min-height: 100vh;
+            }
+
+            .hero-pre-title {
+                font-size: 0.65rem;
+                letter-spacing: 0.35em;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+
+            .hero-tagline {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                gap: 0.8rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.58rem;
+            }
+
+            #about {
+                padding: 5rem 4%;
+            }
+
+            .about-grid {
+                grid-template-columns: 0.7fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .about-image-accent,
+            .about-image-accent-br {
+                width: 50px;
+                height: 50px;
+                top: -8px;
+                left: -8px;
+            }
+
+            .about-image-accent-br {
+                bottom: -8px;
+                right: -8px;
+                top: auto;
+                left: auto;
+            }
+
+            .about-text .section-subtitle {
+                font-size: 0.65rem;
+                letter-spacing: 0.2em;
+            }
+
+            .about-text .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .about-description {
+                font-size: 0.75rem;
+                line-height: 1.7;
+                margin-bottom: 1rem;
+            }
+
+            .about-quote {
+                font-size: 0.95rem;
+                padding: 1rem 0;
+                margin-top: 1rem;
+            }
+
+            .about-quote::before {
+                font-size: 2.5rem;
+            }
+
+            .about-quote p {
+                padding-left: 1.5rem;
+            }
+
+            .about-stats {
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.4rem;
+            }
+
+            .stat-label {
+                font-size: 0.55rem;
+            }
+
+            #gallery {
+                padding: 5rem 3%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2px;
+            }
+
+            .gallery-item-overlay .dish-name {
+                font-size: 0.65rem;
+            }
+
+            .gallery-item-overlay .dish-detail {
+                font-size: 0.6rem;
+            }
+
+            #experience {
+                padding: 5rem 3%;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+            }
+
+            .experience-card {
+                padding: 1.2rem 0.5rem;
+            }
+
+            .experience-icon {
+                margin-bottom: 0.8rem;
+            }
+
+            .experience-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .experience-card h3 {
+                font-size: 0.65rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .experience-card p {
+                font-size: 0.58rem;
+                line-height: 1.5;
+            }
+
+            #testimonials {
+                padding: 5rem 3%;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.6rem;
+            }
+
+            .testimonial-card {
+                padding: 1rem;
+            }
+
+            .testimonial-stars svg {
+                width: 10px;
+                height: 10px;
+            }
+
+            .testimonial-stars {
+                margin-bottom: 0.8rem;
+            }
+
+            .testimonial-card blockquote {
+                font-size: 0.72rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+
+            .testimonial-author-line {
+                width: 15px;
+            }
+
+            .testimonial-author-name {
+                font-size: 0.6rem;
+            }
+
+            .testimonial-author-title {
+                font-size: 0.55rem;
+            }
+
+            #reservation {
+                padding: 5rem 3%;
+            }
+
+            .reservation-form {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .form-group label {
+                font-size: 0.6rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.8rem 1rem;
+                font-size: 0.78rem;
+            }
+
+            .btn-submit {
+                padding: 0.9rem 2.5rem;
+                font-size: 0.65rem;
+            }
+
+            footer {
+                padding: 3rem 3% 2rem;
+            }
+
+            .footer-wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .footer-brand {
+                font-size: 1rem;
+            }
+
+            .footer-brand-sub {
+                font-size: 0.55rem;
+            }
+
+            .footer-social a {
+                width: 32px;
+                height: 32px;
+            }
+
+            .footer-social svg {
+                width: 12px;
+                height: 12px;
+            }
+
+            .footer-info {
+                text-align: right;
+            }
+
+            .footer-location {
+                font-size: 0.65rem;
+            }
+
+            .footer-copyright {
+                font-size: 0.55rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 0.6fr 1fr;
+                gap: 1rem;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.4rem;
+            }
+
+            .experience-card {
+                padding: 1rem 0.4rem;
+            }
+
+            .experience-card h3 {
+                font-size: 0.55rem;
+            }
+
+            .experience-card p {
+                font-size: 0.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.4rem;
+            }
+
+            .testimonial-card {
+                padding: 0.8rem;
+            }
+
+            .testimonial-card blockquote {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <div class="nav-logo">AM</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Menu</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#reservation" class="nav-reserve-btn">Reserve</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=85&auto=format" alt="Fine dining gourmet dish">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-pre-title">Michelin-Starred Culinary Artist</p>
+            <h1 class="hero-title">Chef Alessandro<br>Moretti</h1>
+            <p class="hero-tagline">Where Fire Meets Flavor</p>
+            <div class="hero-buttons">
+                <a href="#reservation" class="btn-primary">Reserve a Table</a>
+                <a href="#gallery" class="btn-secondary">View Menu</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT THE CHEF ===== -->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-image-wrapper fade-section-left">
+                <div class="about-image-accent"></div>
+                <div class="about-image-accent-br"></div>
+                <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=85&auto=format" alt="Chef Alessandro Moretti in the kitchen">
+            </div>
+            <div class="about-text fade-section-right">
+                <p class="section-subtitle">The Artisan</p>
+                <h2 class="section-title">A Legacy Forged<br>in Flame</h2>
+                <div class="gold-line"></div>
+                <p class="about-description">
+                    Born in the sun-soaked hills of Tuscany, Alessandro Moretti grew up between his grandmother's wood-fired kitchen and the wild herb gardens that lined the Arno valley. By sixteen, he had left for Paris. By twenty-three, he had earned his first Michelin star in a kitchen most chefs would never enter.
+                </p>
+                <p class="about-description">
+                    His philosophy is uncompromising: every plate must tell a story. Every ingredient must earn its place. He sources directly from small-batch farmers, deep-sea fishermen, and foragers who share his obsession with provenance. The result is cuisine that doesn't just nourish — it transforms.
+                </p>
+                <div class="about-quote">
+                    <p>Cooking is not about feeding people. It is about making them feel something they cannot name — something between memory, desire, and the sacred.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Michelin Stars</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">22</div>
+                        <div class="stat-label">Years of Craft</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Restaurants</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SIGNATURE DISHES GALLERY ===== -->
+    <section id="gallery">
+        <div class="fade-section">
+            <p class="section-subtitle">Signature Creations</p>
+            <h2 class="section-title">The Art of Flavor</h2>
+            <div class="gold-line"></div>
+        </div>
+        <div class="gallery-grid fade-section">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=600&q=85&auto=format" alt="Wagyu steak fine dining">
+                <div class="gallery-item-overlay">
+                    <span class="dish-name">Wagyu A5 Tenderloin</span>
+                    <span class="dish-detail">Black Truffle &amp; Bone Marrow Jus</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=85&auto=format" alt="Handmade pasta dish">
+                <div class="gallery-item-overlay">
+                    <span class="dish-name">Saffron Tagliatelle</span>
+                    <span class="dish-detail">Hand-Rolled &amp; Slow-Braised Rag&ugrave;</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=85&auto=format" alt="Fine dining chocolate dessert">
+                <div class="gallery-item-overlay">
+                    <span class="dish-name">Valrhona Noir Sphere</span>
+                    <span class="dish-detail">Dark Chocolate &amp; Raspberry Coulis</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?w=600&q=85&auto=format" alt="Seafood plating">
+                <div class="gallery-item-overlay">
+                    <span class="dish-name">Mediterranean Branzino</span>
+                    <span class="dish-detail">Citrus Beurre Blanc &amp; Sea Fennel</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=85&auto=format" alt="Artistic vegetable plate">
+                <div class="gallery-item-overlay">
+                    <span class="dish-name">Garden Symphony</span>
+                    <span class="dish-detail">Heirloom Vegetables &amp; Herb Soil</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=85&auto=format" alt="Modern plating dessert">
+                <div class="gallery-item-overlay">
+                    <span class="dish-name">Deconstructed Tiramisu</span>
+                    <span class="dish-detail">Espresso Foam &amp; Mascarpone Cloud</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85&auto=format" alt="Wine pairing with food">
+                <div class="gallery-item-overlay">
+                    <span class="dish-name">Sommelier's Pairing</span>
+                    <span class="dish-detail">Curated Wine &amp; Course Experience</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=85&auto=format" alt="Gourmet chocolate dessert">
+                <div class="gallery-item-overlay">
+                    <span class="dish-name">Gold Leaf Ganache</span>
+                    <span class="dish-detail">Single-Origin Cacao &amp; Hazelnut</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=600&q=85&auto=format" alt="Chef plating food">
+                <div class="gallery-item-overlay">
+                    <span class="dish-name">The Chef's Vision</span>
+                    <span class="dish-detail">Omakase-Style Tasting Plate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE / SERVICES ===== -->
+    <section id="experience">
+        <div class="experience-wrapper">
+            <div class="fade-section">
+                <p class="section-subtitle">Bespoke Culinary Services</p>
+                <h2 class="section-title">The Experience</h2>
+                <div class="gold-line"></div>
+            </div>
+            <div class="experience-grid fade-section">
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 22V8l9-6 9 6v14H3z"/><path d="M9 22V12h6v10"/></svg>
+                    </div>
+                    <h3>Private Dining</h3>
+                    <p>An intimate evening orchestrated entirely around your palate. Twelve seats. One vision. Unforgettable.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </div>
+                    <h3>Luxury Catering</h3>
+                    <p>Michelin-level cuisine delivered to your most significant occasions — galas, weddings, and milestone celebrations.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg viewBox="0 0 24 24"><path d="M8 2h8l4 10H4L8 2z"/><path d="M12 12v7"/><path d="M6 19h12"/></svg>
+                    </div>
+                    <h3>Tasting Events</h3>
+                    <p>Multi-course journeys through seasonal ingredients, paired with rare wines from private cellars across Europe.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6 2 11c0 3.04 1.78 5.7 4.38 7.23L5 22l3.5-2C9.62 20.65 10.78 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2z"/></svg>
+                    </div>
+                    <h3>Cooking Classes</h3>
+                    <p>Step behind the pass. Learn the techniques, traditions, and instincts behind every dish from the chef himself.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials">
+        <div class="fade-section">
+            <p class="section-subtitle">Words of Praise</p>
+            <h2 class="section-title">What They Say</h2>
+            <div class="gold-line"></div>
+        </div>
+        <div class="testimonials-grid fade-section">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <blockquote>
+                    "I have dined at every three-star restaurant in Europe. Chef Moretti's kitchen is the only one that ever made me close my eyes mid-bite. This is not a meal — it is a revelation."
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-author-line"></div>
+                    <div>
+                        <div class="testimonial-author-name">Victoria Ashworth</div>
+                        <div class="testimonial-author-title">Art Collector &amp; Philanthropist</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <blockquote>
+                    "Alessandro catered our wedding for two hundred guests and made every single plate feel as though it had been composed for an audience of one. The man is a poet who writes in flavor."
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-author-line"></div>
+                    <div>
+                        <div class="testimonial-author-name">James &amp; Eleanor Harrington</div>
+                        <div class="testimonial-author-title">Private Event, Lake Como</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <blockquote>
+                    "In thirty years of food criticism, I have learned to guard against hyperbole. And yet here I am: Chef Moretti is the most exciting culinary mind of his generation. Full stop."
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-author-line"></div>
+                    <div>
+                        <div class="testimonial-author-name">Laurent Descartes</div>
+                        <div class="testimonial-author-title">Le Monde Gastronomique, Editor-in-Chief</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESERVATION SECTION ===== -->
+    <section id="reservation">
+        <div class="reservation-wrapper">
+            <div class="fade-section">
+                <p class="section-subtitle">Begin the Journey</p>
+                <h2 class="section-title">Reserve Your Table</h2>
+                <div class="gold-line"></div>
+            </div>
+            <form class="reservation-form fade-section" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="res-name">Full Name</label>
+                    <input type="text" id="res-name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="res-email">Email Address</label>
+                    <input type="email" id="res-email" placeholder="Your email">
+                </div>
+                <div class="form-group">
+                    <label for="res-date">Preferred Date</label>
+                    <input type="date" id="res-date">
+                </div>
+                <div class="form-group">
+                    <label for="res-guests">Number of Guests</label>
+                    <select id="res-guests">
+                        <option value="" disabled selected>Select guests</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="7-8">7–8 Guests</option>
+                        <option value="9-12">9–12 Guests (Private Dining)</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="res-message">Special Requests</label>
+                    <textarea id="res-message" placeholder="Dietary requirements, celebrations, seating preferences..."></textarea>
+                </div>
+                <div class="form-submit-wrapper">
+                    <button type="submit" class="btn-submit">Request Reservation</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-wrapper">
+            <div>
+                <div class="footer-brand">Alessandro Moretti</div>
+                <div class="footer-brand-sub">Michelin-Starred Culinary Artist</div>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#c4a44a" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="#c4a44a" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="#c4a44a" stroke="none"/></svg>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" fill="none" stroke="#c4a44a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24"><path d="M4 4l11.7 16h4.3L8.3 4H4zm2.3 0L20 20M20 4L4 20" fill="none" stroke="#c4a44a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" fill="none" stroke="#c4a44a" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#c4a44a" stroke="none"/></svg>
+                </a>
+            </div>
+            <div class="footer-info">
+                <div class="footer-location">Via della Pergola 42, Firenze, Italia</div>
+                <div class="footer-copyright">&copy; 2026 Alessandro Moretti. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
